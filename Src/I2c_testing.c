@@ -51,6 +51,7 @@ void I2C1_GPIOInits(void)
 
 void I2C1_Inits(void)
 {
+	
 
 	I2C1Handle.pI2Cx = I2C1;
 	I2C1Handle.I2C_Config.I2C_ACKControl = I2C_ACK_ENABLE;
@@ -67,37 +68,42 @@ void I2C1_Inits(void)
 void I2C2_Inits(void)
 {
 
-	I2C1Handle.pI2Cx = I2C1;
-	I2C1Handle.I2C_Config.I2C_ACKControl = I2C_ACK_ENABLE;
-	I2C1Handle.I2C_Config.I2C_DeviceAddress = 0x61;
-	I2C1Handle.I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_2;
-	I2C1Handle.I2C_Config.I2C_SCLSpeed = I2C_SCL_SPEED_SM;
+	//sda pb11
+	//scl pb10
+	
+	GPIO_Handle_t I2C2Pins;
 
-	I2C_Init(&I2C1Handle);
+	I2C2Handle.pI2Cx = I2C1;
+	I2C2Handle.I2C_Config.I2C_ACKControl = I2C_ACK_ENABLE;
+	I2C2Handle.I2C_Config.I2C_DeviceAddress = 0x61;
+	I2C2Handle.I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_2;
+	I2C2Handle.I2C_Config.I2C_SCLSpeed = I2C_SCL_SPEED_SM;
+
+	I2C_Init(&I2C2Handle);
 
 
 }
 
-int main(void)
-{
-	//i2c pins
-	I2C1_GPIOInits();
+// int main(void)
+// {
+// 	//i2c pins
+// 	I2C1_GPIOInits();
 
-	//i2c peripheral
-	I2C1_Inits();
+// 	//i2c peripheral
+// 	I2C1_Inits();
 
-	//enable i2c peripheral
-	I2C_PeripheralControl(I2C1, ENABLE);
+// 	//enable i2c peripheral
+// 	I2C_PeripheralControl(I2C1, ENABLE);
 
-	I2C_ManageAcking(I2C1, ENABLE);
+// 	I2C_ManageAcking(I2C1, ENABLE);
 
-	//send the data
-	I2C_MasterSendData(&I2C1Handle, some_data, strlen((char*)some_data), SLAVE_ADDR);
+// 	//send the data
+// 	I2C_MasterSendData(&I2C1Handle, some_data, strlen((char*)some_data), SLAVE_ADDR);
 
 
-		while(1);
+// 		while(1);
 
-}
+// }
 
 
 
