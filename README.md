@@ -24,7 +24,7 @@ A bare-metal communication demo project on STM32F4 that **encrypts user data wit
 │   ├── Src/         # Source file drivers for SPI, I2C, GPIO
 │   └── Inc/         # Headers for all peripheral drivers
 ├── Main.c           # Main application code
-├── aes.c/.h         # Lightweight ECB-mode AES implementation
+├── aes.c/.h         # pre-written ECB-mode AES implementation
 ├── lcd.c/h          # Bare metal drivers for running LCD
 └── ...
 
