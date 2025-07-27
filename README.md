@@ -21,10 +21,10 @@ A bare-metal communication demo project on STM32F4 that **encrypts user data wit
 ```bash
 .
 ├── Drivers/
-│   ├── Src/         # Source files for SPI, I2C, LCD, GPIO, AES
+│   ├── Src/         # Source file drivers for SPI, I2C, GPIO
 │   └── Inc/         # Headers for all peripheral drivers
-├── LCD_Test/        # Main application code
+├── Main.c           # Main application code
 ├── aes.c/.h         # Lightweight ECB-mode AES implementation
-├── README.md        # This file
+├── lcd.c/h          # Bare metal drivers for running LCD
 └── ...
 
